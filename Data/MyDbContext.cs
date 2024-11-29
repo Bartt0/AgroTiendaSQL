@@ -15,13 +15,19 @@ namespace TEST.Data
         { }
         public required DbSet<Producto> Producto { get; set; }
         public required DbSet<Usuario> Usuario { get; set; }
-
+        public required DbSet<Ventas> Ventas{ get; set; }
         // Configuración en OnModelCreating
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configurar la propiedad 'Precio' de Producto
             modelBuilder.Entity<Producto>()
                 .Property(p => p.Precio)
+                .HasPrecision(18, 2);  // Precision 18, scale 2 (por ejemplo)
+                
+            base.OnModelCreating(modelBuilder);
+            // Configurar la propiedad 'TOTAL COMPRA' de Ventas
+            modelBuilder.Entity<Ventas>()
+                .Property(p => p.TOTAL_COMPRA)
                 .HasPrecision(18, 2);  // Precision 18, scale 2 (por ejemplo)
 
             base.OnModelCreating(modelBuilder);

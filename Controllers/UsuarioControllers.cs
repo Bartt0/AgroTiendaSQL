@@ -31,7 +31,7 @@ namespace TEST.Controllers
         {
             _context.Usuario.Add(usuario);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetUsuarios), new { id = usuario.Id }, usuario);
+            return CreatedAtAction(nameof(GetUsuarios), new { id = usuario.UsuarioId }, usuario);
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> EliminarProducto(int id)
@@ -50,7 +50,7 @@ namespace TEST.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> ActualizarProducto(int id, Usuario usuario)
         {
-            if (id != usuario.Id)
+            if (id != usuario.UsuarioId)
             {
                 return BadRequest("El ID del usuario no coincide con el de la URL.");
             }
@@ -82,7 +82,7 @@ namespace TEST.Controllers
         // Método auxiliar para verificar si el producto existe
         private bool UsuarioExists(int id)
         {
-            return _context.Usuario.Any(e => e.Id == id);
+            return _context.Usuario.Any(e => e.UsuarioId == id);
         }
 
     }   

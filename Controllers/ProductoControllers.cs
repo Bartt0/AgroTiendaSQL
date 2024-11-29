@@ -31,12 +31,12 @@ namespace TEST.Controllers
         {
             _context.Producto.Add(producto);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetProductos), new { id = producto.Id }, producto);
+            return CreatedAtAction(nameof(GetProductos), new { id = producto.ProductoId }, producto);
         }
            [HttpDelete("{id}")]
-        public async Task<IActionResult> EliminarProducto(int id)
+        public async Task<IActionResult> EliminarProducto(int Productoid)
         {
-            var producto = await _context.Producto.FindAsync(id); // Busca el producto en la base de datos
+            var producto = await _context.Producto.FindAsync(Productoid); // Busca el producto en la base de datos
             if (producto == null)
             {
             return NotFound(); // Devuelve 404 si no se encuentra el producto
@@ -50,7 +50,7 @@ namespace TEST.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> ActualizarProducto(int id, Producto producto)
         {   
-            if (id != producto.Id)
+            if (id != producto.ProductoId)
             {
                 return BadRequest("El ID del producto no coincide con el de la URL.");
             }
@@ -72,17 +72,17 @@ namespace TEST.Controllers
                 }
                 else
                 {
-                    throw; // Lanza la excepción si hay algún problema concurrente
+                    throw; 
                 }
             }
 
-            return NoContent(); // Devuelve 204 No Content al finalizar exitosamente
+            return NoContent(); 
         }
 
         // Método auxiliar para verificar si el producto existe
         private bool ProductoExists(int id)
         {
-            return _context.Producto.Any(e => e.Id == id);
+            return _context.Producto.Any(e => e.ProductoId == id);
         }
 
     }
