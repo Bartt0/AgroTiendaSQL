@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AgroTiendaSQL.Models;
 using Microsoft.EntityFrameworkCore;
 using TEST.Data;
 using TEST.Models;
@@ -16,6 +17,7 @@ namespace TEST.Data
         public required DbSet<Producto> Producto { get; set; }
         public required DbSet<Usuario> Usuario { get; set; }
         public required DbSet<Ventas> Ventas{ get; set; }
+        public required DbSet<Detalle_Ventas> Detalle_Ventas { get; set; }
         // Configuración en OnModelCreating
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

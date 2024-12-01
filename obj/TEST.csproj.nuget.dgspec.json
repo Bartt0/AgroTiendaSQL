@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TEST\\TEST.csproj": {}
+    "C:\\CODE-WEB\\AgroTiendaSQL\\TEST.csproj": {}
   },
   "projects": {
-    "D:\\TEST\\TEST.csproj": {
+    "C:\\CODE-WEB\\AgroTiendaSQL\\TEST.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TEST\\TEST.csproj",
+        "projectUniqueName": "C:\\CODE-WEB\\AgroTiendaSQL\\TEST.csproj",
         "projectName": "TEST",
-        "projectPath": "D:\\TEST\\TEST.csproj",
-        "packagesPath": "C:\\Users\\cjose\\.nuget\\packages\\",
-        "outputPath": "D:\\TEST\\obj\\",
+        "projectPath": "C:\\CODE-WEB\\AgroTiendaSQL\\TEST.csproj",
+        "packagesPath": "C:\\Users\\Angel Mar\\.nuget\\packages\\",
+        "outputPath": "C:\\CODE-WEB\\AgroTiendaSQL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cjose\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Angel Mar\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -81,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
