@@ -18,6 +18,10 @@ namespace TEST.Data
         public required DbSet<Usuario> Usuario { get; set; }
         public required DbSet<Ventas> Ventas{ get; set; }
         public required DbSet<Detalle_Ventas> Detalle_Ventas { get; set; }
+        public required DbSet<Detalle_Carrito> Detalle_Carrito { get; set; }
+        public required DbSet<Chat> Chat { get; set; }
+        public required DbSet<Carrito> Carrito { get; set; }
+        public required DbSet<Calificacion> Calificacion { get; set; }
         // Configuración en OnModelCreating
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
