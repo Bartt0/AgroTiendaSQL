@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AgroTiendaSQL.Models;
+using TEST.Models;
+using TEST.Controllers;
 using Microsoft.EntityFrameworkCore;
 
 
 
-namespace AgroTiendaSQL.Data
+namespace TEST.Data
 {
     public class MyDbContext : DbContext
     {
@@ -26,6 +27,19 @@ namespace AgroTiendaSQL.Data
                 .HasPrecision(18, 2);  // Precision 18, scale 2 (por ejemplo)
 
             base.OnModelCreating(modelBuilder);
+
+            //definicion de primery keu en usuario 
+            modelBuilder.Entity<Usuario>()
+            .HasKey(u => u.UsuarioId); 
+
+             //definicion de primery keu en Producto
+            modelBuilder.Entity<Producto>()
+            .HasKey(p => p.ProductoId); 
+            
+
+            //definicion de primery key en ventas
+            modelBuilder.Entity<Ventas>()
+            .HasKey(v => v.VentasIdId); 
 
              // Relación DetallesVenta -> Producto
             modelBuilder.Entity<Detalle_Ventas>()
