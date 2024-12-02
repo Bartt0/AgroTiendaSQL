@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-namespace TEST.Models
+namespace AgroTiendaSQL.Models
 {
     public class Usuario
     {
@@ -11,6 +11,8 @@ namespace TEST.Models
         public required string Nombre { get; set; }
         public required string Correo { get; set; }
         public required string Contraceña { get; set; }
+
+        
 
     }
 }

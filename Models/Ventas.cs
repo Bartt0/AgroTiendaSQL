@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-namespace TEST.Models
+namespace AgroTiendaSQL.Models
 {
     public class Ventas
     {
