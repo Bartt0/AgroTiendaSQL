@@ -12,8 +12,8 @@ using TEST.Data;
 namespace TEST.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20241202171305_MigracionesRelacion")]
-    partial class MigracionesRelacion
+    [Migration("20241202195551_CHEPE")]
+    partial class CHEPE
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -266,7 +266,7 @@ namespace TEST.Migrations
                     b.HasOne("TEST.Models.Usuario", "Usuario")
                         .WithMany("Calificacion")
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Producto");
@@ -279,7 +279,7 @@ namespace TEST.Migrations
                     b.HasOne("TEST.Models.Usuario", "Usuario")
                         .WithMany("Carrito")
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Usuario");
@@ -290,7 +290,7 @@ namespace TEST.Migrations
                     b.HasOne("TEST.Models.Usuario", "Usuario")
                         .WithMany("Chat")
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Usuario");
@@ -307,7 +307,7 @@ namespace TEST.Migrations
                     b.HasOne("TEST.Models.Producto", "Producto")
                         .WithMany("Detalle_Carrito")
                         .HasForeignKey("ProductoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Carrito");
@@ -320,7 +320,7 @@ namespace TEST.Migrations
                     b.HasOne("TEST.Models.Producto", "Producto")
                         .WithMany("Detalle_Ventas")
                         .HasForeignKey("ProductoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("TEST.Models.Ventas", "Ventas")
@@ -339,7 +339,7 @@ namespace TEST.Migrations
                     b.HasOne("TEST.Models.Usuario", "Usuario")
                         .WithMany("Productos")
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Usuario");
@@ -350,7 +350,7 @@ namespace TEST.Migrations
                     b.HasOne("TEST.Models.Usuario", "Usuario")
                         .WithMany("Ventas")
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Usuario");

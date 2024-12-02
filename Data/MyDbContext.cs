@@ -44,12 +44,20 @@ namespace TEST.Data
             modelBuilder.Entity<Detalle_Ventas>()
             .HasKey(dv => dv.DetallesVentaId); 
 
-             // Relación DetallesVenta -> Producto
-            modelBuilder.Entity<Detalle_Ventas>()
-            .HasOne(p => p.Producto)
-            .WithMany(dv => dv.Detalle_Ventas)
-            .HasForeignKey(p => p.ProductoId)
-            .OnDelete(DeleteBehavior.Cascade);
+// Detalle_Carrito -> Producto
+modelBuilder.Entity<Detalle_Carrito>()
+    .HasOne(dc => dc.Producto)
+    .WithMany(p => p.Detalle_Carrito)
+    .HasForeignKey(dc => dc.ProductoId)
+    .OnDelete(DeleteBehavior.NoAction);
+
+            // Detalle_Ventas -> Producto
+modelBuilder.Entity<Detalle_Ventas>()
+    .HasOne(dv => dv.Producto)
+    .WithMany(p => p.Detalle_Ventas)
+    .HasForeignKey(dv => dv.ProductoId)
+    .OnDelete(DeleteBehavior.NoAction);
+
 
             // Relación DetallesVenta -> Ventas
             modelBuilder.Entity<Detalle_Ventas>()
@@ -58,19 +66,44 @@ namespace TEST.Data
             .HasForeignKey(v => v.VentasId)
             .OnDelete(DeleteBehavior.Cascade); 
         
-            //Relacion Usuario -> Productos
+           // Producto -> Usuario (ya está ajustado correctamente)
             modelBuilder.Entity<Producto>()
-            .HasOne(u => u.Usuario) 
-            .WithMany(p => p.Productos) 
-            .HasForeignKey(u => u.UsuarioId) 
-            .OnDelete(DeleteBehavior.Cascade); 
+            .HasOne(p => p.Usuario)
+            .WithMany(u => u.Productos)
+            .HasForeignKey(p => p.UsuarioId)
+            .OnDelete(DeleteBehavior.NoAction);
 
-            //Relacion Usuario -> Ventas
-            modelBuilder.Entity<Ventas>()
-            .HasOne(u => u.Usuario) 
-            .WithMany(v => v.Ventas) 
-            .HasForeignKey(u => u.UsuarioId) 
-            .OnDelete(DeleteBehavior.Cascade);
+            // Usuario -> Ventas
+modelBuilder.Entity<Ventas>()
+    .HasOne(u => u.Usuario)
+    .WithMany(v => v.Ventas)
+    .HasForeignKey(v => v.UsuarioId)
+    .OnDelete(DeleteBehavior.NoAction);
+
+// Usuario -> Carrito
+modelBuilder.Entity<Carrito>()
+    .HasOne(u => u.Usuario)
+    .WithMany(c => c.Carrito)
+    .HasForeignKey(c => c.UsuarioId)
+    .OnDelete(DeleteBehavior.NoAction);
+
+// Usuario -> Chat
+modelBuilder.Entity<Chat>()
+    .HasOne(u => u.Usuario)
+    .WithMany(ch => ch.Chat)
+    .HasForeignKey(ch => ch.UsuarioId)
+    .OnDelete(DeleteBehavior.NoAction);
+
+// Usuario -> Calificacion
+modelBuilder.Entity<Calificacion>()
+    .HasOne(u => u.Usuario)
+    .WithMany(c => c.Calificacion)
+    .HasForeignKey(c => c.UsuarioId)
+    .OnDelete(DeleteBehavior.NoAction);
+
+
+
+            
 
             //Relacion Carrito -> Detalle_Carrito
             modelBuilder.Entity<Detalle_Carrito>()
@@ -79,33 +112,7 @@ namespace TEST.Data
             .HasForeignKey(c => c.CarritoId) 
             .OnDelete(DeleteBehavior.Cascade);
 
-            //Relacion Producto -> Detalle_Carrito
-            modelBuilder.Entity<Detalle_Carrito>()
-            .HasOne(p => p.Producto) 
-            .WithMany(dc => dc.Detalle_Carrito) 
-            .HasForeignKey(p => p.ProductoId) 
-            .OnDelete(DeleteBehavior.Cascade);
 
-            //Relacion Usuario -> Carrito
-            modelBuilder.Entity<Carrito>()
-            .HasOne(u => u.Usuario) 
-            .WithMany(c => c.Carrito) 
-            .HasForeignKey(u => u.UsuarioId) 
-            .OnDelete(DeleteBehavior.Cascade);
-
-            //Relacion Usuario -> Chat
-            modelBuilder.Entity<Chat>()
-            .HasOne(u => u.Usuario) 
-            .WithMany(Ch => Ch.Chat) 
-            .HasForeignKey(u => u.UsuarioId) 
-            .OnDelete(DeleteBehavior.Cascade);
-
-            //Relacion Usuario -> Calificacion 
-            modelBuilder.Entity<Calificacion>()
-            .HasOne(u => u.Usuario) 
-            .WithMany(c => c.Calificacion) 
-            .HasForeignKey(u => u.UsuarioId) 
-            .OnDelete(DeleteBehavior.Cascade);
         }
          public MyDbContext(DbContextOptions<MyDbContext> options)
             : base(options)

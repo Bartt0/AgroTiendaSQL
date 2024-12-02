@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using TEST.Models;
@@ -9,7 +8,6 @@ namespace TEST.Models
 {
     public class Detalle_Ventas
     {
-        [Key]
         public int DetallesVentaId { get; set; }
         public required int Cantidad { get; set; }
         public required decimal PrecioUnitario { get; set; } 

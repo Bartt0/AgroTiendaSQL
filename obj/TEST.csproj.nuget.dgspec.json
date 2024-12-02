@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "D:\\AgroTiendaSQL\\TEST.csproj": {}
+    "C:\\laragon\\www\\AgroTiendaSQL\\TEST.csproj": {}
   },
   "projects": {
-    "D:\\AgroTiendaSQL\\TEST.csproj": {
+    "C:\\laragon\\www\\AgroTiendaSQL\\TEST.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AgroTiendaSQL\\TEST.csproj",
+        "projectUniqueName": "C:\\laragon\\www\\AgroTiendaSQL\\TEST.csproj",
         "projectName": "TEST",
-        "projectPath": "D:\\AgroTiendaSQL\\TEST.csproj",
-        "packagesPath": "C:\\Users\\cjose\\.nuget\\packages\\",
-        "outputPath": "D:\\AgroTiendaSQL\\obj\\",
+        "projectPath": "C:\\laragon\\www\\AgroTiendaSQL\\TEST.csproj",
+        "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
+        "outputPath": "C:\\laragon\\www\\AgroTiendaSQL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\cjose\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
