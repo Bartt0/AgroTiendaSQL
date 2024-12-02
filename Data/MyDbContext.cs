@@ -86,6 +86,20 @@ namespace TEST.Data
             .WithMany(c => c.Carrito) 
             .HasForeignKey(u => u.UsuarioId) 
             .OnDelete(DeleteBehavior.Cascade);
+
+            //Relacion Usuario -> Chat
+            modelBuilder.Entity<Chat>()
+            .HasOne(u => u.Usuario) 
+            .WithMany(Ch => Ch.Chat) 
+            .HasForeignKey(u => u.UsuarioId) 
+            .OnDelete(DeleteBehavior.Cascade);
+
+            //Relacion Usuario -> Calificacion 
+            modelBuilder.Entity<Calificacion>()
+            .HasOne(u => u.Usuario) 
+            .WithMany(c => c.Calificacion) 
+            .HasForeignKey(u => u.UsuarioId) 
+            .OnDelete(DeleteBehavior.Cascade);
         }
 
         }

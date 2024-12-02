@@ -15,7 +15,8 @@ namespace AgroTiendaSQL.Models
         public ICollection<Producto> Productos { get; set; } = new List<Producto>();
         public ICollection<Ventas> Ventas { get; set; } = new List<Ventas>();
         public ICollection<Carrito> Carrito { get; set; } = new List<Carrito>();
-
+        public ICollection<Chat> Chat { get; set; } = new List<Chat>();
+        public ICollection<Calificacion> Calificacion { get; set; } = new List<Calificacion>();
         
 
     }

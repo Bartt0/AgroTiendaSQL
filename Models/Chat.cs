@@ -11,5 +11,6 @@ namespace AgroTiendaSQL.Models
         public required String Mensaje {get;set;}
         public DateTime Fecha_Mensaje {get;set;}
         public int UsuarioId {get;set;}
+        public required Usuario Usuario {get;set;} = null!;
     }
 }
