@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ namespace TEST.Models
 {
     public class Ventas
     {
+        [Key]
         public int VentasIdId { get; set; }
         public required DateTime Fecha_Ventas { get; set; }
         public required string Direccion_Entrega { get; set; }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ namespace TEST.Models
 {
     public class Usuario
     {
+        [Key]
         public int UsuarioId { get; set; }
         public required string Nombre { get; set; }
         public required string Correo { get; set; }

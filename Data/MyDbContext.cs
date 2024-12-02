@@ -35,11 +35,14 @@ namespace TEST.Data
              //definicion de primery keu en Producto
             modelBuilder.Entity<Producto>()
             .HasKey(p => p.ProductoId); 
-            
 
             //definicion de primery key en ventas
             modelBuilder.Entity<Ventas>()
             .HasKey(v => v.VentasIdId); 
+
+            //definicion de primery key en ventas
+            modelBuilder.Entity<Detalle_Ventas>()
+            .HasKey(dv => dv.DetallesVentaId); 
 
              // Relación DetallesVenta -> Producto
             modelBuilder.Entity<Detalle_Ventas>()
