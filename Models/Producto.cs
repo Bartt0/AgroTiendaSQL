@@ -17,5 +17,6 @@ namespace AgroTiendaSQL.Models
         public Usuario Usuario { get; set; } = null!;
 
         public ICollection<Detalle_Ventas> Detalle_Ventas { get; set; } = new List<Detalle_Ventas>();
+        public ICollection<Detalle_Carrito> Detalle_Carrito { get; set; } = new List<Detalle_Carrito>();
     }
 }

@@ -40,30 +40,51 @@ namespace TEST.Data
 
              // Relación DetallesVenta -> Producto
             modelBuilder.Entity<Detalle_Ventas>()
-            .HasOne(dv => dv.Producto)
-            .WithMany(p => p.Detalle_Ventas)
-            .HasForeignKey(dv => dv.ProductoId)
+            .HasOne(p => p.Producto)
+            .WithMany(dv => dv.Detalle_Ventas)
+            .HasForeignKey(p => p.ProductoId)
             .OnDelete(DeleteBehavior.Cascade);
 
             // Relación DetallesVenta -> Ventas
             modelBuilder.Entity<Detalle_Ventas>()
-            .HasOne(dv => dv.Ventas)
-            .WithMany(v => v.Detalle_Ventas)
-            .HasForeignKey(dv => dv.VentasId)
+            .HasOne(v => v.Ventas)
+            .WithMany(dv => dv.Detalle_Ventas)
+            .HasForeignKey(v => v.VentasId)
             .OnDelete(DeleteBehavior.Cascade); 
         
             //Relacion Usuario -> Productos
             modelBuilder.Entity<Producto>()
-            .HasOne(p => p.Usuario) 
-            .WithMany(u => u.Productos) 
-            .HasForeignKey(p => p.UsuarioId) 
+            .HasOne(u => u.Usuario) 
+            .WithMany(p => p.Productos) 
+            .HasForeignKey(u => u.UsuarioId) 
             .OnDelete(DeleteBehavior.Cascade); 
 
             //Relacion Usuario -> Ventas
             modelBuilder.Entity<Ventas>()
-            .HasOne(v => v.Usuario) 
-            .WithMany(u => u.Ventas) 
-            .HasForeignKey(p => p.UsuarioId) 
+            .HasOne(u => u.Usuario) 
+            .WithMany(v => v.Ventas) 
+            .HasForeignKey(u => u.UsuarioId) 
+            .OnDelete(DeleteBehavior.Cascade);
+
+            //Relacion Carrito -> Detalle_Carrito
+            modelBuilder.Entity<Detalle_Carrito>()
+            .HasOne(c => c.Carrito) 
+            .WithMany(dc => dc.Detalle_Carrito) 
+            .HasForeignKey(c => c.CarritoId) 
+            .OnDelete(DeleteBehavior.Cascade);
+
+            //Relacion Producto -> Detalle_Carrito
+            modelBuilder.Entity<Detalle_Carrito>()
+            .HasOne(p => p.Producto) 
+            .WithMany(dc => dc.Detalle_Carrito) 
+            .HasForeignKey(p => p.ProductoId) 
+            .OnDelete(DeleteBehavior.Cascade);
+
+            //Relacion Usuario -> Carrito
+            modelBuilder.Entity<Carrito>()
+            .HasOne(u => u.Usuario) 
+            .WithMany(c => c.Carrito) 
+            .HasForeignKey(u => u.UsuarioId) 
             .OnDelete(DeleteBehavior.Cascade);
         }
 
