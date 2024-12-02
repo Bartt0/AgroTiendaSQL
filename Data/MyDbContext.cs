@@ -7,21 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 
 
-namespace TEST.Data
+namespace AgroTiendaSQL.Data
 {
     public class MyDbContext : DbContext
     {
-         public MyDbContext(DbContextOptions<MyDbContext> options)
-            : base(options)
-        { }
-        public required DbSet<Producto> Producto { get; set; }
-        public required DbSet<Usuario> Usuario { get; set; }
-        public required DbSet<Ventas> Ventas{ get; set; }
-        public required DbSet<Detalle_Ventas> Detalle_Ventas { get; set; }
-        public required DbSet<Detalle_Carrito> Detalle_Carrito { get; set; }
-        public required DbSet<Chat> Chat { get; set; }
-        public required DbSet<Carrito> Carrito { get; set; }
-        public required DbSet<Calificacion> Calificacion { get; set; }
         // Configuración en OnModelCreating
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -101,6 +90,17 @@ namespace TEST.Data
             .HasForeignKey(u => u.UsuarioId) 
             .OnDelete(DeleteBehavior.Cascade);
         }
+         public MyDbContext(DbContextOptions<MyDbContext> options)
+            : base(options)
+        { }
+        public required DbSet<Producto> Producto { get; set; }
+        public required DbSet<Usuario> Usuario { get; set; }
+        public required DbSet<Ventas> Ventas{ get; set; }
+        public required DbSet<Detalle_Ventas> Detalle_Ventas { get; set; }
+        public required DbSet<Detalle_Carrito> Detalle_Carrito { get; set; }
+        public required DbSet<Chat> Chat { get; set; }
+        public required DbSet<Carrito> Carrito { get; set; }
+        public required DbSet<Calificacion> Calificacion { get; set; }
 
         }
     }
